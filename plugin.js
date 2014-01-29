@@ -107,7 +107,7 @@ CKEDITOR.plugins.add("imageresize", {
 					this[ns].n.$.style.width = this[ns].w+"px";
 					this[ns].n.$.style.height = this[ns].h+"px";
 				} catch(e) {}
-				editor.getSelection().scrollIntoView();
+				if(editor.getSelection()) editor.getSelection().scrollIntoView();
 			}
 			
             this[ns] = cv = ct = null;
