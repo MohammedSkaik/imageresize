@@ -55,7 +55,7 @@ CKEDITOR.plugins.add("imageresize", {
 			for(index = 0; index < l; index++) {
 				item = img.getItem(index), w = 0, h = 0, s = "";
 				try { w = item.$.width, h = item.$.height, s = item.getAttribute("src"); } catch(e) { w = 0, h = 0, s = ""; }
-				if(s.indexOf("data:") === 0 && (w > width || h > height)) this.resize(editor, item, width, height);
+				if(s && s.indexOf("data:") === 0 && (w > width || h > height)) this.resize(editor, item, width, height);
 			}
 		}
 		
