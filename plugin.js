@@ -100,7 +100,11 @@ CKEDITOR.plugins.add("imageresize", {
 			
 			/* Get base64 image source and update image node */
             if(this[ns].n) {
-				this[ns].n.setAttribute("src", cv.toDataURL("image/png"));
+            			if(/^data:image\/jpeg/i.test(this.src) || /\.(jpg|jpeg)$/i.test(this.src)) {
+					this[ns].n.setAttribute("src", cv.toDataURL("image/jpeg", 0.8));
+				} else {
+					this[ns].n.setAttribute("src", cv.toDataURL("image/png"));
+				}
 				this[ns].n.setAttribute("width", this[ns].w);
 				this[ns].n.setAttribute("height", this[ns].h);
 				try {
